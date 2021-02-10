@@ -1,10 +1,12 @@
 package com.msz.product.model;
 
-import lombok.Data;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Data
+@Document(collation = "product")
 public class Product {
 
+    @Id
     private Long id;
     private String name;
     private Category category;

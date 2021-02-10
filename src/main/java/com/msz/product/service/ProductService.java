@@ -1,5 +1,6 @@
 package com.msz.product.service;
 
+import com.msz.product.ProductRepository;
 import com.msz.product.model.Product;
 import org.springframework.stereotype.Service;
 
@@ -8,15 +9,20 @@ import java.util.List;
 @Service
 public class ProductService {
 
-    public List<Product> listAllProducts;
+    private final ProductRepository productRepository;
+
+    public ProductService(ProductRepository productRepository) {
+        this.productRepository = productRepository;
+    }
 
     public String addProduct(Product product) {
 
-        return "success";
+        productRepository.save(product);
+        return "product saved into db";
     }
 
     public List<Product> listAllProducts() {
-        return listAllProducts;
+        return productRepository.findAll();
     }
 
 }
