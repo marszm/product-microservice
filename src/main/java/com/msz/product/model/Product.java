@@ -6,10 +6,12 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.List;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-@Document(collation = "product")
+@Document(collection = "product")
 public class Product {
 
     @Id
@@ -17,7 +19,9 @@ public class Product {
     private String name;
     private Category category;
     private double price;
+    private String  currency;
     private double discount;
     private String discountDescription;
+    private List<String> imageURLs;
 
 }
