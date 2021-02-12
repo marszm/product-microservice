@@ -3,6 +3,7 @@ package com.msz.product.controller;
 import com.msz.product.model.Product;
 import com.msz.product.service.ProductService;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -12,18 +13,18 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+@Slf4j
 @RestController
 @RequestMapping("v1")
 @AllArgsConstructor
 public class ProductController {
 
-    private static final Logger logger = LoggerFactory.getLogger(ProductController.class);
     private final ProductService productService;
 
     @PostMapping("/addProduct")
     ResponseEntity<Product> addProduct(@RequestBody Product product) {
         String status = productService.addProduct(product);
-        logger.info("product added status", status);
+        log.info("product added status", status);
         return ResponseEntity.status(HttpStatus.CREATED).body(product);
     }
 
@@ -32,7 +33,7 @@ public class ProductController {
         return productService.listAllProducts();
     }
 
-    @GetMapping(/"product/{id}")
+    @GetMapping("/product/{id}")
     Optional<Product> productById(@PathVariable Long id) {
         return productService.productById(id);
     }

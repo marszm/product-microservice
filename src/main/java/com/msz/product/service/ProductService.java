@@ -3,11 +3,13 @@ package com.msz.product.service;
 import com.msz.product.ProductRepository;
 import com.msz.product.model.Product;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Slf4j
 @Service
 @AllArgsConstructor
 public class ProductService {
@@ -15,7 +17,7 @@ public class ProductService {
     private final ProductRepository productRepository;
 
     public String addProduct(Product product) {
-
+        log.info("adding product");
         productRepository.save(product);
         return "product added";
     }
