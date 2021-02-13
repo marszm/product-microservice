@@ -24,13 +24,14 @@ public class SwaggerConfiguration {
                 .apis(RequestHandlerSelectors.basePackage("com.msz.product.controller"))
                 .build();
     }
+
     private ApiInfo geApiInfo() {
         return new ApiInfo("Product Microservice",
                 "Product Microservice for online shopping portal",
                 "1.0",
                 "https://github.com/marszm",
-                new Contact("marszm","https://github.com/marszm","abc@gmail.com"),
-         "Terms of Use License", "https://github.com/marszm",
+                new Contact("marszm", "https://www.linkedin.com/in/mariusz-szmer-31463b12a/", "abc@gmail.com"),
+                "Terms of Use License", "https://github.com/marszm/product-microservice/blob/master/LICENSE",
                 Collections.emptyList()
         );
     }
