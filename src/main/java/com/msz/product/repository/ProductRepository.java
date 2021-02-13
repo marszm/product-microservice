@@ -1,4 +1,4 @@
-package com.msz.product;
+package com.msz.product.repository;
 
 import com.msz.product.model.Product;
 import org.springframework.data.mongodb.repository.MongoRepository;

@@ -1,6 +1,6 @@
 package com.msz.product.service;
 
-import com.msz.product.ProductRepository;
+import com.msz.product.repository.ProductRepository;
 import com.msz.product.model.Product;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
