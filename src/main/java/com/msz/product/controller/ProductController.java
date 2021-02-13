@@ -2,6 +2,7 @@ package com.msz.product.controller;
 
 import com.msz.product.model.Product;
 import com.msz.product.service.ProductService;
+import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -20,6 +21,7 @@ public class ProductController {
     private final ProductService productService;
 
     @PostMapping("/addProduct")
+    @ApiOperation("Used to add product into db")
     ResponseEntity<Product> addProduct(@RequestBody Product product) {
         String status = productService.addProduct(product);
         log.info(status);
@@ -27,6 +29,7 @@ public class ProductController {
     }
 
     @GetMapping("/productList")
+    @ApiOperation("Used to list all products from")
     List<Product> productList() {
         return productService.listAllProducts();
     }

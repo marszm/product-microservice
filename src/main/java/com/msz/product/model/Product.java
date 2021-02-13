@@ -1,5 +1,7 @@
 package com.msz.product.model;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,9 +14,11 @@ import java.util.List;
 @AllArgsConstructor
 @Data
 @Document(collection = "product")
+@ApiModel("Conatin all the atributes required under product entity")
 public class Product {
 
     @Id
+    @ApiModelProperty("This is unique id of the product")
     private Long id;
     private String name;
     private Category category;
