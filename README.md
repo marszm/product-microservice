@@ -5,3 +5,4 @@ Already implemented:
 - integration with MongoDB
 - Lombok & Codota
 - Swagger 2 documentation
+- validation
