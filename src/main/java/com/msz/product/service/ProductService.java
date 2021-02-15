@@ -30,7 +30,7 @@ public class ProductService {
         return productRepository.findByCategory(category);
     }
 
-    public Optional<Product> productById(Long id) {
+    public Optional<Product> productById(String id) {
         return productRepository.findById(id);
     }
 
@@ -39,7 +39,7 @@ public class ProductService {
         return "product updated";
     }
 
-    public String deleteProductById(Long id) {
+    public String deleteProductById(String id) {
         productRepository.deleteById(id);
         return "product deleted";
     }

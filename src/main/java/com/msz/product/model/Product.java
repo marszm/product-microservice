@@ -22,7 +22,7 @@ public class Product {
 
     @Id
     @ApiModelProperty("This is unique id of the product")
-    private Long id;
+    private String id;
     @NotNull(message = "product name should not be null")
     private String name;
     @NotNull(message = "category should not be null")
