@@ -1,7 +1,8 @@
 package com.msz.product.service;
 
-import com.msz.product.repository.ProductRepository;
+import com.msz.product.exception.OfferNotValidException;
 import com.msz.product.model.Product;
+import com.msz.product.repository.ProductRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -17,6 +18,10 @@ public class ProductService {
     private final ProductRepository productRepository;
 
     public String addProduct(Product product) {
+
+        if (product.getPrice() == 0 && product.getDiscount() > 0) {
+            throw new OfferNotValidException("No discount is allowed at 0 product price");
+        }
         log.info("adding product");
         productRepository.save(product);
         return "product added";
