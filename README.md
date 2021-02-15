@@ -6,3 +6,5 @@ Already implemented:
 - Lombok & Codota
 - Swagger 2 documentation
 - validation
+- custom exception handler
+- hot code swapping
