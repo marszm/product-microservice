@@ -8,3 +8,4 @@ Already implemented:
 - validation
 - custom exception handler
 - hot code swapping
+- centralized logging of all endpoints with filters
