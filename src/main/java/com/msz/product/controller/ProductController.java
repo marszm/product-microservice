@@ -21,7 +21,7 @@ public class ProductController {
 
     private final ProductService productService;
 
-    @PostMapping("/addProduct")
+    @PostMapping("/products")
     @ApiOperation("Used to add product into db")
     ResponseEntity<Product> addProduct(@RequestBody @Valid Product product) {
         String status = productService.addProduct(product);
@@ -29,23 +29,23 @@ public class ProductController {
         return ResponseEntity.status(HttpStatus.CREATED).body(product);
     }
 
-    @GetMapping("/productList")
+    @GetMapping("/producs")
     @ApiOperation("Used to list all products from")
     List<Product> productList() {
         return productService.listAllProducts();
     }
 
-    @GetMapping("/product/{id}")
+    @GetMapping("/products/{id}")
     Optional<Product> productById(@PathVariable String id) {
         return productService.productById(id);
     }
 
-    @PutMapping("/productUpdate")
+    @PutMapping("/producs")
     String updateProduct(@RequestBody Product product) {
         return productService.updateProduct(product);
     }
 
-    @DeleteMapping("/product/{id}")
+    @DeleteMapping("/products/{id}")
     String deleteProductById(@PathVariable String id) {
         return productService.deleteProductById(id);
     }
