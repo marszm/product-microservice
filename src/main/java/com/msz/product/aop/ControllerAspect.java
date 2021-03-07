@@ -11,13 +11,13 @@ import org.springframework.stereotype.Component;
 @Component
 @Slf4j
 @Aspect
-public class LoggingAspect {
+public class ControllerAspect {
 
     @Around("execution(* com.msz.product.controller..*(..))")
     public Object aroundControllerMethod(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         long start = System.nanoTime();
         Object proceed = proceedingJoinPoint.proceed();
-        log.info("::Time::" + (System.nanoTime() - start) + "ns");
+        log.info("::Controller method time execution::" + (System.nanoTime() - start) + "ns");
         return proceed;
     }
 

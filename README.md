@@ -9,3 +9,4 @@ Already implemented:
 - custom exception handler
 - hot code swapping
 - centralized logging of all endpoints with filters
+- AOP - for measurement of the GET method execution time
