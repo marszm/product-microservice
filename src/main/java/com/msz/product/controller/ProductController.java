@@ -29,7 +29,7 @@ public class ProductController {
         return ResponseEntity.status(HttpStatus.CREATED).body(product);
     }
 
-    @GetMapping("/producs")
+    @GetMapping("/products")
     @ApiOperation("Used to list all products from")
     List<Product> productList() {
         return productService.listAllProducts();
@@ -40,7 +40,7 @@ public class ProductController {
         return productService.productById(id);
     }
 
-    @PutMapping("/producs")
+    @PutMapping("/products")
     String updateProduct(@RequestBody Product product) {
         return productService.updateProduct(product);
     }

@@ -1,5 +1,6 @@
 package com.msz.product.configuration;
 
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.PathSelectors;
@@ -14,6 +15,7 @@ import java.util.Collections;
 
 @Configuration
 @EnableSwagger2
+@EnableCaching
 public class SwaggerConfiguration {
 
     @Bean

@@ -5,6 +5,7 @@ import com.msz.product.model.Product;
 import com.msz.product.repository.ProductRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -27,6 +28,7 @@ public class ProductService {
         return "product added";
     }
 
+    @Cacheable(cacheNames = "AllProducts")
     public List<Product> listAllProducts() {
         return productRepository.findAll();
     }
