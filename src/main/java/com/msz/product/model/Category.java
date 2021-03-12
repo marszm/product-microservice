@@ -1,10 +1,8 @@
 package com.msz.product.model;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Getter
-@Setter
+@Data
 public class Category {
 
     private Long id;

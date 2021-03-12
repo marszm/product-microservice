@@ -1,7 +1,9 @@
 package com.msz.product.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.msz.product.model.Category;
 import com.msz.product.model.Product;
+import com.msz.product.repository.ProductRepository;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,20 +27,35 @@ class ProductControllerTest {
     @Autowired
     private ObjectMapper objectMapper;
 
+    @Autowired
+    ProductRepository productRepository;
+
     @Test
     void shouldGetSingleProduct() throws Exception {
         // given
+        Product newProduct = new Product();
+        Category newCategory = new Category();
+        newCategory.setId(222L);
+        newCategory.setName("Mariii");
+        newCategory.setBrand("najki");
+        newProduct.setCategory(newCategory);
+        newProduct.setId("1");
+        newProduct.setName("Mariusz");
+        newProduct.setDiscount(11);
+        newProduct.setCurrency("dollar");
+        newProduct.setDiscountDescription("year end sale offer");
+        productRepository.save(newProduct);
         // when
-        MvcResult mvcResult = mockMvc.perform(get("/v1/products/602aaa39f96cda08c46fd331"))
+        MvcResult mvcResult = mockMvc.perform(get("/v1/products/1"))
                 .andDo(print())
                 .andExpect(MockMvcResultMatchers.status().is(200))
                 .andReturn();
         // then
         Product product = objectMapper.readValue(mvcResult.getResponse().getContentAsString(), Product.class);
         assertThat(product).isNotNull();
-        assertThat(product.getId()).isEqualTo("602aaa39f96cda08c46fd331");
-        assertThat(product.getName()).isEqualTo("dsadasd");
-        assertThat(product.getDiscount()).isEqualTo(10.0);
+        assertThat(product.getId()).isEqualTo("1");
+        assertThat(product.getName()).isEqualTo("Mariusz");
+        assertThat(product.getDiscount()).isEqualTo(11.0);
     }
 
 }
