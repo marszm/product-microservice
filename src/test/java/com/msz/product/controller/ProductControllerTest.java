@@ -4,7 +4,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.msz.product.model.Category;
 import com.msz.product.model.Product;
 import com.msz.product.repository.ProductRepository;
-import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -22,13 +21,11 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 class ProductControllerTest {
 
     @Autowired
+    ProductRepository productRepository;
+    @Autowired
     private MockMvc mockMvc;
-
     @Autowired
     private ObjectMapper objectMapper;
-
-    @Autowired
-    ProductRepository productRepository;
 
     @Test
     void shouldGetSingleProduct() throws Exception {
@@ -53,8 +50,8 @@ class ProductControllerTest {
         // then
         Product product = objectMapper.readValue(mvcResult.getResponse().getContentAsString(), Product.class);
         assertThat(product).isNotNull();
-        assertThat(product.getId()).isEqualTo("1");
-        assertThat(product.getName()).isEqualTo("Mariusz");
+        assertThat(product.getId()).isEqualTo(newProduct.getId());
+        assertThat(product.getName()).isEqualTo(newProduct.getName());
         assertThat(product.getDiscount()).isEqualTo(11.0);
     }
 
