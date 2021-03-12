@@ -11,3 +11,4 @@ Already implemented:
 - centralized logging of all endpoints with filters
 - AOP - measurement of the GET method execution time
 - Spring cache 
+    
