@@ -10,5 +10,6 @@ Already implemented:
 - hot code swapping
 - centralized logging of all endpoints with filters
 - AOP - measurement of the GET method execution time
-- Spring cache 
+- Spring cache (ehcache for cache magement)
+- Spring Boot Actuator (health check status)
     
