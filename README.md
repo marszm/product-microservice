@@ -12,4 +12,5 @@ Already implemented:
 - AOP - measurement of the GET method execution time
 - Spring cache (ehcache for cache magement)
 - Spring Boot Actuator (health check status)
+- JaCoCo for test coverage
     
