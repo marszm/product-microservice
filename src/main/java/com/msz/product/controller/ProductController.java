@@ -23,7 +23,7 @@ public class ProductController {
 
     @PostMapping("/products")
     @ApiOperation("Used to add product into db")
-    ResponseEntity<Product> addProduct(@RequestBody @Valid Product product) {
+    public ResponseEntity<Product> addProduct(@RequestBody @Valid Product product) {
         String status = productService.addProduct(product);
         log.info(status);
         return ResponseEntity.status(HttpStatus.CREATED).body(product);
@@ -31,22 +31,22 @@ public class ProductController {
 
     @GetMapping("/products")
     @ApiOperation("Used to list all products from")
-    List<Product> productList() {
+    public List<Product> productList() {
         return productService.listAllProducts();
     }
 
     @GetMapping("/products/{id}")
-    Optional<Product> productById(@PathVariable String id) {
+    public Optional<Product> productById(@PathVariable String id) {
         return productService.productById(id);
     }
 
     @PutMapping("/products")
-    String updateProduct(@RequestBody Product product) {
+    public String updateProduct(@RequestBody Product product) {
         return productService.updateProduct(product);
     }
 
     @DeleteMapping("/products/{id}")
-    String deleteProductById(@PathVariable String id) {
+    public String deleteProductById(@PathVariable String id) {
         return productService.deleteProductById(id);
     }
 
