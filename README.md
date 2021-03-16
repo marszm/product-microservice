@@ -13,4 +13,5 @@ Already implemented:
 - Spring cache (ehcache for cache magement)
 - Spring Boot Actuator (health check status)
 - JaCoCo for test coverage
+- Sonarqube for static code analysis
     
